@@ -1,4 +1,4 @@
 #!/usr/bin/python3
 for char in "abcdefghijklmnopqrstuvwxyz":
-    if char not in "qe":
-        print(char, end="")
+    if char != "q" and char != "e":
+        print(f"{char}", end="")
