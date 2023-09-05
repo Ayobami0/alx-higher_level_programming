@@ -5,4 +5,3 @@ def uppercase(str):
             print("{}".format(chr(ord(c) - 32)), end="")
         else:
             print("{}".format(c), end="")
-uppercase("This is a test for the uppercase function")
