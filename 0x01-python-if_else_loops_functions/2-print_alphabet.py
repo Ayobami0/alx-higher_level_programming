@@ -1,3 +1,3 @@
 #!/usr/bin/python3
-for char in "abcdefghijklmnopqrstuvwxyz":
-    print(f"{char}", end="")
+for i in range(ord("a"), ord("z") + 1):
+    print(f"{chr(i)}", end="")
