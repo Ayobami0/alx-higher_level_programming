@@ -65,9 +65,9 @@ void print_python_bytes(PyObject *p)
 				bytes_ob->ob_base.ob_size < 10 ? bytes_ob->ob_base.ob_size : 10);
 	while (bytes_ob->ob_sval[i] != '\0' && i < 10)
 	{
-		printf("%x ", bytes_ob->ob_sval[i]);
+		printf("%02x ", bytes_ob->ob_sval[i]);
 		i++;
 	}
-	printf("%x", bytes_ob->ob_sval[i]);
+	printf("%02x", bytes_ob->ob_sval[i]);
 	printf("\n");
 }
