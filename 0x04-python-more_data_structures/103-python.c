@@ -43,7 +43,7 @@ void print_python_list(PyObject *p)
  */
 void print_python_bytes(PyObject *p)
 {
-	PyBytesObject* bytes_ob;
+	PyBytesObject *bytes_ob;
 	int i = 0;
 
 	printf("[.] bytes object info\n");
@@ -55,8 +55,9 @@ void print_python_bytes(PyObject *p)
 	bytes_ob = (PyBytesObject *) p;
 	printf("  size: %li\n", bytes_ob->ob_base.ob_size);
 	printf("  trying string: %s\n", bytes_ob->ob_sval);
-	printf("  first %li bytes: ", bytes_ob->ob_base.ob_size < 10 ? bytes_ob->ob_base.ob_size : 10);
-	while (bytes_ob->ob_sval[i+1] != '\0' && i < 9)
+	printf("  first %li bytes: ",
+				bytes_ob->ob_base.ob_size < 10 ? bytes_ob->ob_base.ob_size : 10);
+	while (bytes_ob->ob_sval[i + 1] != '\0' && i < 9)
 	{
 		printf("%x ", bytes_ob->ob_sval[i]);
 		i++;
