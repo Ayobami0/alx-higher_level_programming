@@ -63,7 +63,7 @@ void print_python_bytes(PyObject *p)
 	printf("  trying string: %s\n", bytes_ob->ob_sval);
 	printf("  first %li bytes: ",
 				bytes_ob->ob_base.ob_size < 10 ? bytes_ob->ob_base.ob_size + 1 : 10);
-	while (bytes_ob->ob_sval[i] != '\0' && i < 10)
+	while (bytes_ob->ob_sval[i] != '\0' && i < 9)
 	{
 		printf("%02x ", bytes_ob->ob_sval[i]);
 		i++;
