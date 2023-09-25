@@ -19,3 +19,11 @@ def complex_delete(a_dictionary, value):
 # print_sorted_dictionary(a_dictionary)
 # print("--")
 # print_sorted_dictionary(new_dict)
+
+def print_func_return(func):
+    print(func())
+
+def add(a, b):
+    return a + b
+
+print_func_return(lambda: add(1, 2))
