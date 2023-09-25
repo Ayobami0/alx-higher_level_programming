@@ -5,6 +5,3 @@ def safe_print_integer(value):
     except ValueError:
         return False
     return True
-
-
-print(safe_print_integer("test"))
