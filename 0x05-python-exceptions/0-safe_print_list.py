@@ -8,6 +8,3 @@ def safe_print_list(my_list=[], x=0):
             pass
     print("")
     return i + 1
-
-
-print(safe_print_list([1, 3, 4, 5], 4))
