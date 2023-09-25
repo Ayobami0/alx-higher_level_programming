@@ -5,14 +5,13 @@ def list_division(my_list_1, my_list_2, list_length):
     for i in range(max(my_list_2, my_list_1)):
         try:
             new_len[i] = my_list_2 / my_list_1
-        except IndexError:
-            print("out of range")
-            continue
-        except ZeroDivisionError:
-            print("division by 0")
-            continue
-        except TypeError:
-            print("wrong type")
+        except (IndexError, ZeroDivisionError, TypeError) as e:
+            if e is IndexError:
+                print("out of range")
+            elif e is ZeroDivisionError:
+                print("division by 0")
+            else:
+                print("wrong type")
             continue
         finally:
             pass
