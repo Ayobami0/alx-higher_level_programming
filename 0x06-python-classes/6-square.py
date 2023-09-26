@@ -21,7 +21,7 @@ class Square:
         if size < 0:
             raise ValueError("size must be >= 0")
         for i in position:
-            if type(i) is not int or i < 0:
+            if type(i) is not int or i < 0 or len(position) != 2:
                 raise TypeError(
                     "position must \
 be a tuple of 2 positive integers"
@@ -69,6 +69,26 @@ be a tuple of 2 positive integers"
         Returns the size instance attr.
         """
         return self.__position
+
+    @position.setter
+    def position(self, value):
+        """A setter for the position property in the Square class.
+
+        Sets the class private attr to the parameter position.
+        The position must be a tuple of integer and  must be greater
+        or equal to 0 else TypeError is raised.
+
+        Args:
+            value (:obj:`tuple` of :obj:`int`):  The position to print the
+                square.
+        """
+        for i in value:
+            if type(i) is not int or i < 0 or len(value) != 2:
+                raise TypeError(
+                    "position must \
+be a tuple of 2 positive integers"
+                )
+        self.__position = value
 
     def my_print(self):
         """Prints out the square grid.
