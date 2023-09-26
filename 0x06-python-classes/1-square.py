@@ -10,8 +10,8 @@ class Square:
     TypeError and ValueError are raised respectively
 
     Args:
-        size (int): the size of the Square.
+        size : the size of the Square.
     """
 
-    def __init__(self, size):
-        self._size = None  #: size of square
+    def __init__(self, size=0):
+        self._size = size
