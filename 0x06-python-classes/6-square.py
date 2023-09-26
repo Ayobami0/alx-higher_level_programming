@@ -82,10 +82,12 @@ be a tuple of 2 positive integers"
             value (:obj:`tuple` of :obj:`int`):  The position to print the
                 square.
         """
-        if type(value) is not int:
-            raise TypeError("size must be an integer")
-        if value < 0:
-            raise ValueError("size must be >= 0")
+        for i in value:
+            if type(i) is not int or i < 0:
+                raise TypeError(
+                    "position must \
+be a tuple of 2 positive integers"
+                )
         self.__position = value
 
     def my_print(self):
