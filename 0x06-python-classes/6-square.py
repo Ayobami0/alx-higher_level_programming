@@ -92,12 +92,12 @@ be a tuple of 2 positive integers"
         """Prints out the square grid.
 
         Prints out the square using the '#' character.
-        If the size of the square is 0 nothing is printed, if the
-        postion tuple is empty
+        If the size of the square is 0 nothing is printed.
         """
         if self.__size == 0:
             print("")
         else:
-            print(" " * self.__position[1])
+            if self.__position[1] != 0:
+                print("" * self.__position[1])
             for _ in range(self.__size):
                 print(" " * self.__position[0], "#" * self.__size, sep="")

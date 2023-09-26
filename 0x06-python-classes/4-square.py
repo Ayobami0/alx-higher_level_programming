@@ -18,7 +18,7 @@ class Square:
             raise TypeError("size must be an integer")
         if size < 0:
             raise ValueError("size must be >= 0")
-        self._size = size  #: size of square
+        self.__size = size  #: size of square
 
     def area(self):
         """Computes the area of the square.
@@ -26,7 +26,7 @@ class Square:
         An instance method that computes the area of the square
         and return its value
         """
-        return self._size**2
+        return self.__size**2
 
     @property
     def size(self):
@@ -34,7 +34,7 @@ class Square:
 
         Returns the size instance attr.
         """
-        return self._size
+        return self.__size
 
     @size.setter
     def size(self, value):
@@ -51,4 +51,4 @@ class Square:
             raise TypeError("size must be an integer")
         if value < 0:
             raise ValueError("size must be >= 0")
-        self._size = value
+        self.__size = value
