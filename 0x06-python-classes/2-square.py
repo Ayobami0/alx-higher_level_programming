@@ -1,8 +1,5 @@
 #!/usr/bin/python3
-"""This module contains an implementation of the Square class.
-
-    The clase doesnothig for now.
-"""
+"""This module contains an implementation of the Square class."""
 
 
 class Square:
