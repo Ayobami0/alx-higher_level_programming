@@ -1,22 +1,20 @@
 #!/usr/bin/python3
 """This module contains an implementation of the Square class.
 
-    The clase doesnothig for now.
+    The class does nothig for now.
 """
 
 
 class Square:
-    """The Square class that probably computes the area of a square.
+    """A Square class that has a size parameter.
 
-    Instantiates the class with a private field of _size.
+    Sets the class private attr to the parameter size.
+    The size variable must be an integer and  must be greater than 0 else
+    TypeError and ValueError are raised respectively
+
+    Args:
+        size (int): the size of the Square.
     """
 
     def __init__(self, size):
-        """Initialize the class.
-
-        Sets the class private attr to the parameter size.
-
-        Args:
-            size: the size of the Square.
-        """
         self._size = size
