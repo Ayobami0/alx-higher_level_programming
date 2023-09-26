@@ -1,13 +1,15 @@
 #!/usr/bin/python3
 """This module contains an implementation of the Square class.
 
-    The clase doesnothig for now.
+    This is a comment and i guess it shoud contain more lines.
 """
 
 
 class Square:
     """The Square class that probably computes the area of a square.
 
+    Instantiates the class with a private field of _size.
+    Instantiates the class with a private field of _size.
     Instantiates the class with a private field of _size.
     """
 
