@@ -33,7 +33,7 @@ class Rectangle:
 
     """
 
-    number_of_instance = 0
+    number_of_instances = 0
     print_symbol = "#"
 
     def __init__(self, width=0, height=0):
@@ -56,7 +56,7 @@ class Rectangle:
             raise TypeError("height must be an integer")
         if height < 0:
             raise ValueError("height must be >= 0")
-        self.number_of_instance += 1
+        Rectangle.number_of_instances += 1
         self.__width = width
         self.__height = height
 
@@ -132,7 +132,7 @@ class Rectangle:
 
     def __del__(self):
         """Decrements the number_of_instance when a Rectangle is deleted."""
-        self.number_of_instance -= 1
+        Rectangle.number_of_instances -= 1
         print("Bye rectangle...")
 
     @staticmethod
