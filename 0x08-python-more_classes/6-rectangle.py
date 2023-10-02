@@ -48,7 +48,7 @@ class Rectangle:
             raise TypeError("height must be an integer")
         if height < 0:
             raise ValueError("height must be >= 0")
-        self.number_of_instance += 1
+        Rectangle.number_of_instance += 1
         self.__width = width
         self.__height = height
 
@@ -124,8 +124,8 @@ class Rectangle:
 
     def __del__(self):
         """Decrements the number_of_instance when a Rectangle is deleted."""
-        self.number_of_instance -= 1
         print("Bye rectangle...")
+        Rectangle.number_of_instance -= 1
 
     def __repr__(self):
         """Returns an object representation of the rectangle."""
