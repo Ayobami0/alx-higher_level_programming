@@ -28,7 +28,7 @@ def matrix_divided(matrix, div):
         ZeroDivisionError:
             div cannot be equal to 0
     """
-    if type(matrix) is not list:
+    if not isinstance(matrix, list):
         raise TypeError(
             "matrix must be a matrix (list of lists)\
  of integers/floats"
@@ -41,7 +41,7 @@ def matrix_divided(matrix, div):
         return matrix
     len_row = len(matrix[0])
     for row_idx, row in enumerate(matrix):
-        if type(row) is not list:
+        if not isinstance(row, list):
             raise TypeError(
                 "matrix must be a matrix (list of lists)\
  of integers/floats"
