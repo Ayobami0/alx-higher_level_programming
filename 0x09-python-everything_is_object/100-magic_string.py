@@ -1,4 +1,3 @@
 #!/usr/bin/python3
 def magic_string():
-    for _ in range(i + 1):
-        print("Best School", end=", " if _ != i else "\n")
+    print(("Best School, " * (globals()[list(globals())[-1]] + 1))[:-2])
