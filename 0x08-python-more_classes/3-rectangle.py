@@ -111,6 +111,8 @@ class Rectangle:
         If the width or height is zero an empty string is returned.
         """
         str_rep = ""
+        if self.__height == 0 or self.__width == 0:
+            return ""
         for i in range(self.__height):
             str_rep += "#" * self.__width
             if i != self.__height - 1:
