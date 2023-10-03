@@ -1,0 +1,8 @@
+#!/bin/bash
+n=0
+
+while [ $n -lt 29 ]
+do
+	touch "$n-answer.txt"
+	n=`expr $n + 1`
+done
