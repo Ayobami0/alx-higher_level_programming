@@ -40,7 +40,8 @@ def matrix_divided(matrix, div):
     if len(matrix) == 0:
         return matrix
     len_row = len(matrix[0])
-    for row_idx, row in enumerate(matrix):
+    matrix_cpy = matrix[:]
+    for row_idx, row in enumerate(matrix_cpy):
         if not isinstance(row, list):
             raise TypeError(
                 "matrix must be a matrix (list of lists)\
@@ -55,5 +56,5 @@ def matrix_divided(matrix, div):
  of integers/floats"
                 )
             row[val_idx] = round(val / div, 2)
-        matrix[row_idx] = row
-    return matrix
+        matrix_cpy[row_idx] = row
+    return matrix_cpy
