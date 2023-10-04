@@ -40,8 +40,9 @@ def matrix_divided(matrix, div):
     if len(matrix) == 0:
         return matrix
     len_row = len(matrix[0])
-    matrix_cpy = matrix[:]
-    for row_idx, row in enumerate(matrix_cpy):
+    result = []
+    for row in matrix:
+        rst_row = []
         if not isinstance(row, list):
             raise TypeError(
                 "matrix must be a matrix (list of lists)\
@@ -49,12 +50,12 @@ def matrix_divided(matrix, div):
             )
         if len(row) != len_row:
             raise TypeError("Each row of the matrix must have the same size")
-        for val_idx, val in enumerate(row):
+        for val in row:
             if type(val) not in [float, int]:
                 raise TypeError(
                     "matrix must be a matrix (list of lists)\
  of integers/floats"
                 )
-            row[val_idx] = round(val / div, 2)
-        matrix_cpy[row_idx] = row
-    return matrix_cpy
+            rst_row.append(round(val / div, 2))
+        result.append(rst_row)
+    return result
