@@ -14,6 +14,10 @@ Using `add_integer`
 	98
 	>>> add_integer(float('inf'), -2)
 	89
+	>>> add_integer(None, -2)
+	Traceback (most recent call last):
+		...
+	TypeError: a must be an integer
 	>>> add_integer(4, "School")
 	Traceback (most recent call last):
 		...
