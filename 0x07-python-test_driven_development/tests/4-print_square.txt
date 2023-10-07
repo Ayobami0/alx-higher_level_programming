@@ -1,0 +1,29 @@
+===================
+-------------------
+	>>> func = __import__("4-print_square").print_square
+
+	>>> func(3)
+	###
+	###
+	###
+
+	>>> func(4)
+	####
+	####
+	####
+	####
+
+	>>> func(None)
+	Traceback (most recent call last):
+		...
+	TypeError: size must be an integer
+
+	>>> func("5")
+	Traceback (most recent call last):
+		...
+	TypeError: size must be an integer
+
+	>>> func(-1)
+	Traceback (most recent call last):
+		...
+	ValueError: size must be >= 0

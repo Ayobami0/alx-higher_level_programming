@@ -1,0 +1,31 @@
+===================
+-------------------
+	>>> func = __import__("3-say_my_name").say_my_name
+
+	>>> first_name = "Ayobami"
+	>>> last_name = "Oludemi"
+	>>> func(first_name, last_name)
+	My name is Ayobami Oludemi
+
+	>>> func("Ayobami")
+	My name is Ayobami
+
+	>>> func(None)
+	Traceback (most recent call last):
+		...
+	TypeError: first_name must be a string
+
+	>>> func(None)
+	Traceback (most recent call last):
+		...
+	TypeError: first_name must be a string
+
+	>>> func(1, None)
+	Traceback (most recent call last):
+		...
+	TypeError: first_name must be a string
+
+	>>> func("Oludemi", None)
+	Traceback (most recent call last):
+		...
+	TypeError: last_name must be a string
