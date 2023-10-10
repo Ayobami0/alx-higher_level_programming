@@ -1,4 +1,7 @@
-"""A module module containing a function that reads a file."""
+"""A module module containing a function that reads a file.
+
+read_file(filename="")
+"""
 
 
 def read_file(filename=""):
@@ -7,9 +10,6 @@ def read_file(filename=""):
     Args:
         filename (str): The name of the file to read
         (default is an empty string).
-    Note:
-        If 'filename' is not provided or is an empty string,
-        the function will not read any file.
     """
     try:
         with open(filename, "r", encoding="UTF8") as f:
