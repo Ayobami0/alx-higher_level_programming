@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """A module module containing a function that reads a file."""
 
 
