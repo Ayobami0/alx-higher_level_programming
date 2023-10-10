@@ -1,9 +1,8 @@
-"""A module module containing a function that reads a file"""
+"""A module module containing a function that reads a file."""
 
 
 def read_file(filename=""):
-    """
-    Read and print the contents of a file.
+    """Read and print the contents of a file.
 
     Args:
         filename (str): The name of the file to read
