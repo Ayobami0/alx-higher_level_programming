@@ -36,8 +36,9 @@ class Student:
             return self.__dict__
         new_dict = {}
         for v in self.__dict__.keys():
-            if v in self.__dict__.keys():
+            if v in attr:
                 new_dict[v] = self.__dict__[v]
+        return new_dict
 
     def reload_from_json(self, json):
         """

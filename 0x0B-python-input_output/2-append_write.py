@@ -19,4 +19,4 @@ def append_write(filename="", text=""):
         the function will not append anything to the file.
     """
     with open(filename, "a", encoding="utf-8") as f:
-        f.write(text)
+        return f.write(text)
