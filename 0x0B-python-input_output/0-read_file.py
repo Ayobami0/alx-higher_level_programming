@@ -10,8 +10,5 @@ def read_file(filename=""):
         filename (str): The name of the file to read
         (default is an empty string).
     """
-    try:
-        with open(filename, "r", encoding="UTF8") as f:
-            print(f.read())
-    except Exception:
-        pass
+    with open(filename, "r", encoding="UTF8") as f:
+        print(f.read().strip())
