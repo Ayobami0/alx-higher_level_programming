@@ -3,9 +3,7 @@
 
 It contains the rectangle class which inherites the imported base class.
 """
-
-
-Base = __import__("0x0C-python-almost_a_circle.models.base").Base
+from models.base import Base
 
 
 class Rectangle(Base):
@@ -147,7 +145,8 @@ class Rectangle(Base):
         for _ in range(self.__y):
             print()
         for _ in range(self.__height):
-            print(" " * self.__x, "#" * self.__width)
+            print(" " * self.__x, end="")
+            print("#" * self.__width)
 
     def __str__(self) -> str:
         """
@@ -156,8 +155,13 @@ class Rectangle(Base):
         Returns:
             str: A string representation of the rectangle object.
         """
-        return "[Rectangle] ({}) {}/{} - {}/{}".format(
-            self.id, self.__x, self.__y, self.__width, self.__height
+        return "[{}] ({}) {}/{} - {}/{}".format(
+            self.__class__.__name__,
+            self.id,
+            self.__x,
+            self.__y,
+            self.__width,
+            self.__height,
         )
 
     def update(self, *args, **kwargs):
@@ -182,14 +186,14 @@ class Rectangle(Base):
             ValueError: If any value is out of range (width, height <= 0 or
                 x, y < 0).
         """
-        if args is not None:
+        if len(args) != 0:
             args = list(args)
             args.extend([None for _ in range(5 - len(args))])
             id, width, height, x, y = args
-        elif kwargs is not None:
+        elif len(kwargs) != 0:
             id = kwargs.get("id", None)
-            width = kwargs.get("id", None)
-            height = kwargs.get("id", None)
+            width = kwargs.get("width", None)
+            height = kwargs.get("height", None)
             x = kwargs.get("id", None)
             y = kwargs.get("y", None)
         else:
@@ -197,6 +201,8 @@ class Rectangle(Base):
 
         self.validate(
             (id if id is not None else 1, "id"),
+            # This is to allow the validate function set the values
+            # even if they are none
             (width if width is not None else 1, "width"),
             (height if height is not None else 1, "height"),
             (x if x is not None else 1, "x"),
@@ -207,6 +213,17 @@ class Rectangle(Base):
         self.__height = height if height is not None else self.__height
         self.__x = x if x is not None else self.__x
         self.__y = y if y is not None else self.__y
+
+    def to_dictionary(
+        self,
+    ):
+        return {
+            "y": self.y,
+            "x": self.x,
+            "id": self.id,
+            "width": self.width,
+            "height": self.height,
+        }
 
     @staticmethod
     def validate(*args):
