@@ -49,13 +49,25 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
-        Rectangle = __import__("models").rectangle.Rectangle
-        Square = __import__("models").square.Square
+        cls.__subclasses__()
+        if cls.__name__ == "Base":
+            return
         if cls.__name__ == "Rectangle":
-            dummy = Rectangle(1, 1)
+            dummy = cls(1, 1)  # Rectangle Class
         elif cls.__name__ == "Square":
-            dummy = Square(1)
-        else:
-            dummy = Rectangle(1, 1)
+            dummy = cls(1)  # Square Class
         dummy.update(**dictionary)
         return dummy
+
+    @classmethod
+    def load_from_file(cls):
+        obj = []
+        file_name = cls.__name__ + ".json"
+        try:
+            with open(file_name, "r", encoding="utf-8") as f:
+                json_string = cls.from_json_string(f.read())
+                for o in json_string:
+                    obj.append(cls.create(**o))
+        except FileNotFoundError:
+            pass
+        return obj
