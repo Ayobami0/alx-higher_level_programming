@@ -7,6 +7,18 @@ from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
+    """
+    Squaer class representing a square shape.
+
+    Attributes:
+        size (int): the size of the square.
+        x (int): The x-coordinate position of the top-left corner
+            of the square.
+        y (int): The y-coordinate position of the top-left corner
+            of the square.
+        id (int): The ID of the square object.
+    """
+
     def __init__(self, size, x=0, y=0, id=None):
         """
         Initialize a Square instance.
@@ -59,27 +71,6 @@ class Square(Rectangle):
         """
         self.width = val
         self.height = val
-
-    @property
-    def height(self):
-        """
-        int: Get the height of the square.
-        """
-        return self.size
-
-    @height.setter
-    def height(self, val):
-        """
-        Set the height of the square.
-
-        Args:
-            val (int): The new height value.
-
-        Raises:
-            TypeError: If the value is not an integer.
-            ValueError: If the value is less than or equal to 0.
-        """
-        self.size = val
 
     def to_dictionary(self):
         """
