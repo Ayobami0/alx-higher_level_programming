@@ -194,7 +194,7 @@ class Rectangle(Base):
             id = kwargs.get("id", None)
             width = kwargs.get("width", None)
             height = kwargs.get("height", None)
-            x = kwargs.get("id", None)
+            x = kwargs.get("x", None)
             y = kwargs.get("y", None)
         else:
             return
