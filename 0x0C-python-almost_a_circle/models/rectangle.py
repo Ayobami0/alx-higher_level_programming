@@ -200,13 +200,13 @@ class Rectangle(Base):
             return {}
 
         self.validate(
-            (id if id is not "_" else 1, "id"),
+            (id if id is "_" else 1, "id"),
             # This is to allow the validate function set the values
             # even if they are none
-            (width if width is not "_" else 1, "width"),
-            (height if height is not "_" else 1, "height"),
-            (x if x is not "_" else 1, "x"),
-            (y if y is not "_" else 1, "y"),
+            (width if width is "_" else 1, "width"),
+            (height if height is "_" else 1, "height"),
+            (x if x is "_" else 1, "x"),
+            (y if y is "_" else 1, "y"),
         )
         self.id = id if id is not None else self.id
         self.__width = width if width is not None else self.__width
