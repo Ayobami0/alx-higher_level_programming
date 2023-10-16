@@ -62,9 +62,15 @@ class Square(Rectangle):
         """
         self.size = val
 
-    def to_dictionary(
-        self,
-    ):
+    def to_dictionary(self):
+        """
+        Convert a Square instance to a dictionary representation.
+
+        Returns:
+            dict: A dictionary containing the attributes 'y', 'x', 'id',
+                and 'size'.
+
+        """
         return {"x": self.x, "y": self.y, "id": self.id, "size": self.size}
 
     def update(self, *args, **kwargs):
