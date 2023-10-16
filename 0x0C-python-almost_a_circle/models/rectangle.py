@@ -186,11 +186,11 @@ class Rectangle(Base):
             ValueError: If any value is out of range (width, height <= 0 or
                 x, y < 0).
         """
-        if len(args) != 0:
+        if len(args) != 0 and args is not None:
             args = list(args)
             args.extend([None for _ in range(5 - len(args))])
             id, width, height, x, y = args
-        elif len(kwargs) != 0:
+        elif len(kwargs) != 0 and kwargs is not None:
             id = kwargs.get("id", None)
             width = kwargs.get("width", None)
             height = kwargs.get("height", None)
