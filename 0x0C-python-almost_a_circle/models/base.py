@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Base class module"""
 import json
+import csv
 
 
 class Base:
@@ -73,3 +74,60 @@ class Base:
         except FileNotFoundError:
             pass
         return obj
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        filename = cls.__name__ + ".csv"
+        with open(filename, "w", encoding="utf-8") as csvfile:
+            csvwriter = csv.writer(csvfile)
+            if cls.__name__ == "Rectangle":
+                csvwriter.writerows(
+                    [
+                        (
+                            obj.id,
+                            obj.width,
+                            obj.height,
+                            obj.x,
+                            obj.y,
+                        )
+                        for obj in list_objs
+                    ]
+                )
+            elif cls.__name__ == "Square":
+                csvwriter.writerows(
+                    [
+                        (
+                            obj.id,
+                            obj.size,
+                            obj.x,
+                            obj.y,
+                        )
+                        for obj in list_objs
+                    ]
+                )
+
+    @classmethod
+    def load_from_file_csv(cls):
+        filename = cls.__name__ + ".csv"
+        results = []
+        try:
+            with open(filename, "r", encoding="utf-8") as csvfile:
+                csvreader = csv.reader(csvfile)
+                for rows in csvreader:
+                    row_dict = {}
+                    if cls.__name__ == "Square":
+                        row_dict["id"] = int(rows[0])
+                        row_dict["size"] = int(rows[1])
+                        row_dict["x"] = int(rows[2])
+                        row_dict["y"] = int(rows[3])
+                    elif cls.__name__ == "Rectangle":
+                        row_dict["id"] = int(rows[0])
+                        row_dict["width"] = int(rows[1])
+                        row_dict["height"] = int(rows[2])
+                        row_dict["x"] = int(rows[3])
+                        row_dict["y"] = int(rows[4])
+                    if len(row_dict) != 0:
+                        results.append(cls.create(**row_dict))
+        except Exception:
+            pass
+        return results
