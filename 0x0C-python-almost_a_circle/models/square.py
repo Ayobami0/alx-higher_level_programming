@@ -8,9 +8,28 @@ from models.rectangle import Rectangle
 
 class Square(Rectangle):
     def __init__(self, size, x=0, y=0, id=None):
+        """
+        Initialize a Square instance.
+
+        Args:
+            size (int): The size of the square.
+            x (int, optional): The x-coordinate of the square's
+                position (default is 0).
+            y (int, optional): The y-coordinate of the square's
+                position (default is 0).
+            id (int or None, optional): The unique identifier
+                for the square (default is None).
+        """
         super().__init__(size, size, x, y, id)
 
     def __str__(self) -> str:
+        """
+        Return a string representation of the Square instance.
+
+        Returns:
+            str: A string containing class name, id, coordinates,
+                and size of the square.
+        """
         return "[{}] ({}) {}/{} - {}".format(
             self.__class__.__name__,
             self.id,
