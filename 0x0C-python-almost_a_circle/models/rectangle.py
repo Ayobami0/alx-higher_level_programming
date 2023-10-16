@@ -188,7 +188,7 @@ class Rectangle(Base):
         """
         if len(args) != 0 and args is not None:
             args = list(args)
-            args.extend([None for _ in range(5 - len(args))])
+            args.extend(["nil" for _ in range(5 - len(args))])
             id, width, height, x, y = args
         elif len(kwargs) != 0 and kwargs is not None:
             id = kwargs.get("id", self.id)
@@ -200,13 +200,13 @@ class Rectangle(Base):
             return
 
         self.validate(
-            (id if id is not None else 1, "id"),
+            (id if id != "nil" else self.id, "id"),
             # This is to allow the validate function set the values
             # even if they are none
-            (width if width is not None else 1, "width"),
-            (height if height is not None else 1, "height"),
-            (x if x is not None else 1, "x"),
-            (y if y is not None else 1, "y"),
+            (width if width != "nil" else self.width, "width"),
+            (height if height != "nil" else self.height, "height"),
+            (x if x != "nil" else self.x, "x"),
+            (y if y != "nil" else self.y, "y"),
         )
         self.id = id if id is not None else self.id
         self.__width = width if width is not None else self.__width
