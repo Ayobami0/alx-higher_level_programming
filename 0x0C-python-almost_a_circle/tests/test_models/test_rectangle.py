@@ -49,6 +49,12 @@ class TestBaseClass(unittest.TestCase):
     def test_incorrect_height_type(self):
         self.assertRaises(TypeError, lambda: Rectangle(2, True))
 
+    def test_width_less_or_equal_zero(self):
+        self.assertRaises(ValueError, lambda: Rectangle(0, 1))
+
+    def test_height_less_or_equal_zero(self):
+        self.assertRaises(ValueError, lambda: Rectangle(2, 0))
+
     def test_incorrect_x_pos_type(self):
         self.assertRaises(TypeError, lambda: Rectangle(1, 2, x="tis is a string"))
 
