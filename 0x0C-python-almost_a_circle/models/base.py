@@ -8,7 +8,7 @@ class Base:
 
     __nb_object = 0
 
-    def __init__(self, id) -> None:
+    def __init__(self, id=None) -> None:
         """
         Initialize the Base object with an ID.
 
@@ -49,7 +49,9 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
-        cls.__subclasses__()
+        dummy = None
+        if dictionary is None:
+            return dummy
         if cls.__name__ == "Base":
             return
         if cls.__name__ == "Rectangle":

@@ -22,14 +22,14 @@ class Square(Rectangle):
     @property
     def size(self):
         """
-        int: Get the size of the rectangle.
+        int: Get the size of the square.
         """
         return self.width
 
     @size.setter
     def size(self, val):
         """
-        Set the size of the rectangle.
+        Set the size of the square.
 
         Args:
             val (int): The new size value.
@@ -40,6 +40,27 @@ class Square(Rectangle):
         """
         self.width = val
         self.height = val
+
+    @property
+    def height(self):
+        """
+        int: Get the height of the square.
+        """
+        return self.size
+
+    @height.setter
+    def height(self, val):
+        """
+        Set the height of the square.
+
+        Args:
+            val (int): The new height value.
+
+        Raises:
+            TypeError: If the value is not an integer.
+            ValueError: If the value is less than or equal to 0.
+        """
+        self.size = val
 
     def to_dictionary(
         self,

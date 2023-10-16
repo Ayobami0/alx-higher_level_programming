@@ -240,7 +240,7 @@ class Rectangle(Base):
                 x, y < 0).
         """
         for v in args:
-            if not isinstance(v[0], int):
+            if type(v[0]) is not int:
                 raise TypeError("{} must be an integer".format(v[1]))
             if v[1] in ("width", "height") and v[0] <= 0:
                 raise ValueError("{} must be > 0".format(v[1]))
