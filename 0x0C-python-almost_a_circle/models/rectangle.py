@@ -214,9 +214,15 @@ class Rectangle(Base):
         self.__x = x if x is not None else self.__x
         self.__y = y if y is not None else self.__y
 
-    def to_dictionary(
-        self,
-    ):
+    def to_dictionary(self):
+        """
+        Convert a Rectangle instance to a dictionary representation.
+
+        Returns:
+            dict: A dictionary containing the attributes 'y', 'x', 'id',
+                'width', and 'height'.
+
+        """
         return {
             "y": self.y,
             "x": self.x,
