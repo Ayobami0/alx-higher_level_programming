@@ -60,7 +60,7 @@ class Base:
         filename = cls.__name__ + ".json"
         if list_objs is None:
             with open(filename, "w", encoding="utf-8") as json_f:
-                json_f.write("[]")
+                json.dump([], json_f)
 
         list_objs_str = cls.to_json_string(
             [obj.to_dictionary() for obj in list_objs],
