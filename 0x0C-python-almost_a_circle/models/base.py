@@ -36,7 +36,7 @@ class Base:
 
     @staticmethod
     def from_json_string(json_string):
-        if len(json_string) == 0 or json_string is None:
+        if json_string is None or len(json_string) == 0:
             return []
         object_rep = json.loads(json_string)
         return object_rep
@@ -58,6 +58,10 @@ class Base:
     @classmethod
     def save_to_file(cls, list_objs):
         filename = cls.__name__ + ".json"
+        if list_objs is None:
+            with open(filename, "w", encoding="utf-8") as json_f:
+                json_f.write("[]")
+
         list_objs_str = cls.to_json_string(
             [obj.to_dictionary() for obj in list_objs],
         )
