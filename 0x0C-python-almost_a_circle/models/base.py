@@ -2,6 +2,8 @@
 """Base class module"""
 import json
 import csv
+import turtle as t
+import random
 
 
 class Base:
@@ -22,15 +24,6 @@ class Base:
         else:
             Base.__nb_object += 1
             self.id = Base.__nb_object
-
-    @classmethod
-    def save_to_file(cls, list_objs):
-        filename = cls.__name__ + ".json"
-        list_objs_str = cls.to_json_string(
-            [obj.to_dictionary() for obj in list_objs],
-        )
-        with open(filename, "w", encoding="utf-8") as json_f:
-            json_f.write(list_objs_str)
 
     @staticmethod
     def to_json_string(list_dictionaries):
@@ -61,6 +54,15 @@ class Base:
             dummy = cls(1)  # Square Class
         dummy.update(**dictionary)
         return dummy
+
+    @classmethod
+    def save_to_file(cls, list_objs):
+        filename = cls.__name__ + ".json"
+        list_objs_str = cls.to_json_string(
+            [obj.to_dictionary() for obj in list_objs],
+        )
+        with open(filename, "w", encoding="utf-8") as json_f:
+            json_f.write(list_objs_str)
 
     @classmethod
     def load_from_file(cls):
@@ -131,3 +133,34 @@ class Base:
         except Exception:
             pass
         return results
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        colors = (
+            "red",
+            "blue",
+            "green",
+            "yellow",
+            "pink",
+            "orange",
+            "black",
+            "indigo",
+            "violet",
+        )
+        for rect in list_rectangles:
+            t.speed(2)
+            t.color(random.choice(colors))
+            for _ in range(2):
+                t.forward(rect.width)
+                t.left(90)
+                t.forward(rect.height)
+                t.left(90)
+            t.clearscreen()
+
+        for sq in list_squares:
+            t.speed(2)
+            t.color(random.choice(colors))
+            for _ in range(4):
+                t.forward(sq.size)
+                t.left(90)
+            t.clearscreen()
