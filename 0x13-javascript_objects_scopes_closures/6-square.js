@@ -28,13 +28,13 @@ class Rectangle {
     this.height *= 2;
   }
 }
-class SquareBase extends Rectangle {
+class Square extends Rectangle {
   constructor (size) {
     super(size, size);
   }
 }
 
-class Square extends SquareBase {
+module.exports = class extends Square {
   charPrint (c) {
     let printSymbol = 'X';
     if (c !== undefined) {
@@ -48,6 +48,4 @@ class Square extends SquareBase {
       console.log(row);
     }
   }
-}
-
-module.exports = Square;
+};
