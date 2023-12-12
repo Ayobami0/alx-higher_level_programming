@@ -32,9 +32,7 @@ class Square extends Rectangle {
   constructor (size) {
     super(size, size);
   }
-}
 
-module.exports = class extends Square {
   charPrint (c) {
     let printSymbol = 'X';
     if (c !== undefined) {
@@ -48,4 +46,6 @@ module.exports = class extends Square {
       console.log(row);
     }
   }
-};
+}
+
+module.exports = Square;
