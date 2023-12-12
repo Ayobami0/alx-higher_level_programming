@@ -1,5 +1,5 @@
 #!/usr/bin/node
 
-class Rectangle {};
+class Rectangle {}
 
-exports.Rectangle = this.Rectangle;
+exports.Rectangle = Rectangle;
