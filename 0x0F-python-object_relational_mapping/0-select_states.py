@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-
+"""A module for database connectivity"""
 import MySQLdb
 import sys
 
@@ -21,5 +21,6 @@ SELECT * FROM states ORDER BY id
 
 rows = db.store_result().fetch_row(maxrows=0)
 
-for row in rows:
-    print(row)
+if __name__ == "__main__":
+    for row in rows:
+        print(row)
