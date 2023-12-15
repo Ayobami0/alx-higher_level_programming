@@ -1,5 +1,7 @@
-#!./venv/bin/python3
-"""A module for database connectivity. This a just a minor script"""
+#!/usr/bin/python3
+"""
+A module for database connectivity. This a just a minor script.
+"""
 
 import MySQLdb
 import sys
