@@ -1,8 +1,7 @@
-#!/usr/bin/python3
+#!./venv/bin/python3
 """A module for database connectivity"""
-import MySQLdb
 import sys
-
+MySQLdb = __import__('MySQLdb')
 args = sys.argv[1:]
 mysql_user, mysql_pass, db_name = args
 db = MySQLdb.connect(
