@@ -1,7 +1,9 @@
 #!./venv/bin/python3
-"""A module for database connectivity"""
+"""A module for database connectivity. This a just a minor script"""
+
 import MySQLdb
 import sys
+
 args = sys.argv[1:]
 mysql_user, mysql_pass, db_name = args
 db = MySQLdb.connect(
@@ -20,5 +22,6 @@ SELECT * FROM states ORDER BY id
 
 rows = db.store_result().fetch_row(maxrows=0)
 
-for row in rows:
-    print(row)
+if __name__ == "__main__":
+    for row in rows:
+        print(row)
