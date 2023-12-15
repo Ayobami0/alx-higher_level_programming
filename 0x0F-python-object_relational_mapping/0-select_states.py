@@ -1,5 +1,11 @@
+<<<<<<< HEAD
 #!./venv/bin/python3
 """A module for database connectivity"""
+=======
+#!/usr/bin/python3
+
+import MySQLdb
+>>>>>>> parent of 0389d06 (fix: checker fix for task 0)
 import sys
 MySQLdb = __import__('MySQLdb')
 args = sys.argv[1:]
@@ -20,6 +26,5 @@ SELECT * FROM states ORDER BY id
 
 rows = db.store_result().fetch_row(maxrows=0)
 
-if __name__ == "__main__":
-    for row in rows:
-        print(row)
+for row in rows:
+    print(row)
