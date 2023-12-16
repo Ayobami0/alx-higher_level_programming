@@ -16,12 +16,10 @@ if __name__ == "__main__":
         port=3306,
         database=db_name,
     )
-    c = db.cursor()
-    QUERY = "SELECT * FROM states WHERE name='{}'".format(
-        search_str)
-    c.execute(QUERY)
+    QUERY = "SELECT * FROM states WHERE name='{}'".format(search_str)
 
-    rows = c.fetchall()
+    db.query(QUERY)
 
+    rows = db.store_result().fetch_row(maxrows=0)
     for row in rows:
         print(row)

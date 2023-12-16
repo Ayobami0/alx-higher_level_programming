@@ -16,14 +16,13 @@ if __name__ == "__main__":
         port=3306,
         database=db_name,
     )
-    c = db.cursor()
-    c.execute(
+    db.query(
         """
-        SELECT * FROM states WHERE name LIKE "N%" ORDER BY id
-        """
+        SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id
+    """
     )
 
-    rows = c.fetchall()
+    rows = db.store_result().fetch_row(maxrows=0)
 
     for row in rows:
         print(row)
