@@ -26,5 +26,5 @@ if __name__ == "__main__":
     if s is not None:
         print(s.id)
     else:
-        print("Not Found")
+        print("Not found")
     session.close()
