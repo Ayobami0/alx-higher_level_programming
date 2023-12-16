@@ -19,7 +19,7 @@ if __name__ == "__main__":
 
     db.query(
         """
-    SELECT * FROM states WHERE name LIKE "N%" ORDER BY id
+    SELECT (id, name) FROM states WHERE name LIKE "N%" ORDER BY id
     """
     )
 
