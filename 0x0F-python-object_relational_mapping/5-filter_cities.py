@@ -32,4 +32,5 @@ if __name__ == "__main__":
         if row_idx != len(rows) - 1:
             print(rows[row_idx][0], end=", ")
         else:
-            print(rows[row_idx][0], end="\n")
+            print(rows[row_idx][0], end="")
+    print()
