@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+This module perform some actions on the sql database using sqlalchemy
+"""
 import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
