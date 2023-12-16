@@ -18,8 +18,8 @@ if __name__ == "__main__":
     )
 
     db.query(
-        f"""
-    SELECT * FROM states WHERE name LIKE {db_name}
+        """
+    SELECT * FROM states WHERE name LIKE "N%" ORDER BY id
     """
     )
 
