@@ -17,11 +17,8 @@ if __name__ == "__main__":
         database=db_name,
     )
     c = db.cursor()
-    c.execute(
-        """
-            SELECT * FROM states WHERE name = {}
-        """.format(search_str)
-    )
+    c.execute("SELECT * FROM states WHERE name = {} ORDER BY id".format(
+        search_str))
 
     rows = c.fetchall()
 
