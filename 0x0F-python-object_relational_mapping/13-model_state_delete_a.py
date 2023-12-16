@@ -18,8 +18,5 @@ if __name__ == "__main__":
     Base.metadata.create_all(engine)
     session = sessionmaker(bind=engine)()
 
-    s = session.add(State(name="Louisiana"))
-    session.commit()
-
     session.query(State).filter(State.name.contains('a')).delete()
     session.close()
