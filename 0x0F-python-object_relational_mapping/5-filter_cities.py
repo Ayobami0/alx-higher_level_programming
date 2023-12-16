@@ -19,7 +19,7 @@ if __name__ == "__main__":
     c = db.cursor()
     c.execute(
         """
-            SELECT *
+            SELECT cities.name
             FROM cities
             WHERE state_id = (SELECT id FROM states WHERE name = %s)
         """,
@@ -28,5 +28,8 @@ if __name__ == "__main__":
 
     rows = c.fetchall()
 
-    for row in rows:
-        print(row)
+    for row_idx in range(len(rows)):
+        if row_idx != len(rows) - 1:
+            print(rows[row_idx][0], end=", ")
+        else:
+            print(rows[row_idx][0], end="\n")
