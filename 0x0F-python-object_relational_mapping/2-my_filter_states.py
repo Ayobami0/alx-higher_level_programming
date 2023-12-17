@@ -16,7 +16,8 @@ if __name__ == "__main__":
         port=3306,
         database=db_name,
     )
-    QUERY = "SELECT * FROM states WHERE name='{}'".format(search_str)
+    QUERY = "SELECT * FROM states WHERE name LIKE BINARY '{}'".format(
+        search_str)
 
     db.query(QUERY)
 

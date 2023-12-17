@@ -18,7 +18,7 @@ if __name__ == "__main__":
     )
     db.query(
         """
-        SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id
+        SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY id
     """
     )
 
