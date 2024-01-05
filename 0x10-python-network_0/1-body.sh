@@ -1,3 +1,3 @@
 #!/bin/bash
 # Display body
-curl -s -f "$1"
+curl -s -f -L "$1"
