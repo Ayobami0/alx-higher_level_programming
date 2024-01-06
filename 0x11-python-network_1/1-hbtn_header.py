@@ -2,7 +2,7 @@
 """
 Featches a link and prints the value of the X-Request-Id
 """
-import urllib.request
+import urllib
 import sys
 
 url = sys.argv[1]
