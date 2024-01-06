@@ -13,6 +13,6 @@ url = sys.argv[1]
 
 try:
     with urllib.request.urlopen(url) as res:
-        print(res.read().decode('utf-8'))
+        print(res.read().decode("utf-8"))
 except urllib.error.HTTPError as e:
-    print('Error code: {}'.format(e.code))
+    print("Error code: {}".format(e.code))
