@@ -8,8 +8,8 @@ if __name__ == "__main__":
     import sys
     import requests
 
-    repo_owner = sys.argv[1]
-    repo_name = sys.argv[2]
+    repo_name = sys.argv[1]
+    repo_owner = sys.argv[2]
 
     headers = {
         "X-GitHub-Api-Version": "2022-11-28",
@@ -25,10 +25,13 @@ if __name__ == "__main__":
 
     jsonBody = res.json()
 
-    for n in range(10):
-        print(
-            "{}: {}".format(
-                jsonBody[n].get("sha"),
-                jsonBody[n].get("commit").get("author").get("name"),
+    try:
+        for n in range(10):
+            print(
+                "{}: {}".format(
+                    jsonBody[n].get("sha"),
+                    jsonBody[n].get("commit").get("author").get("name"),
+                )
             )
-        )
+    except Exception:
+        pass
