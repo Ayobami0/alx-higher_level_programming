@@ -18,7 +18,7 @@ if __name__ == "__main__":
     res = requests.post("http://0.0.0.0:5000/search_user", data={"q": letter})
 
     if res.headers.get("Content-Type") == "application/json":
-        jsonBody = res.content
+        jsonBody = res.json()
         try:
             print("[{}] {}".format(jsonBody["id"], jsonBody["name"]))
         except KeyError:
