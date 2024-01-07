@@ -20,4 +20,4 @@ if __name__ == "__main__":
     res = requests.get("https://api.github.com/user", headers=headers)
 
     jsonBody = res.json()
-    print("{}".format(jsonBody.get('id')))
+    print("{}".format(jsonBody.get("id")))
