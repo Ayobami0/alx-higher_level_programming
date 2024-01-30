@@ -3,6 +3,6 @@
 const { argv } = require('process');
 const request = require('request');
 
-request.get(argv[2]).on('response', (response) => {
-  console.log(`code: ${response.statusCode}`);
+request.get(`https://swapi-api.alx-tools.com/api/films/${argv[2]}`, (_, __, body) => {
+  console.log(JSON.parse(body).title);
 });
