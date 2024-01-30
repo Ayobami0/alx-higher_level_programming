@@ -1,10 +1,10 @@
 #!/usr/bin/node
 
-const fs = require('node:fs');
-const { argv } = require('node:process');
+const fs = require('fs');
+const { argv } = require('process');
 
-try {
-  fs.writeFileSync(argv[2], argv[3], { encoding: 'utf-8' });
-} catch (error) {
-  console.log(error);
-}
+fs.writeFile(argv[2], argv[3], { encoding: 'utf-8' }, (err) => {
+  if (err != null) {
+    console.log(err);
+  }
+});
