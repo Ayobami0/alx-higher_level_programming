@@ -4,9 +4,6 @@ const { argv } = require('process');
 const request = require('request');
 
 (function fetchPeople (page) {
-  if (!fetch) {
-    return;
-  }
   const url = `https://swapi-api.alx-tools.com/api/people/?page=${page}`;
   request.get(url, (_, __, body) => {
     const jBody = JSON.parse(body);
