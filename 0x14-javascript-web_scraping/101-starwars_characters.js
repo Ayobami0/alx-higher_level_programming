@@ -3,24 +3,12 @@
 const { argv } = require('process');
 const request = require('request');
 
-function fetchPeople (page) {
-  if (!fetch) {
-    return;
-  }
-  const url = `https://swapi-api.alx-tools.com/api/people/?page=${page}`;
-  request.get(url, (_, __, body) => {
-    const jBody = JSON.parse(body);
-    jBody.results.filter((people) => {
-      return people.films.includes(
-        `https://swapi-api.alx-tools.com/api/films/${argv[2]}/`
-      );
-    }).forEach(people => {
-      console.log(people.name);
+const url = `https://swapi-api.alx-tools.com/api/films/${argv[2]}`;
+request.get(url, (_, __, body) => {
+  const jBody = JSON.parse(body);
+  jBody.characters.forEach(peopleUrl => {
+    request.get(peopleUrl, (_, __, body) => {
+      console.log(JSON.parse(body).name);
     });
-    if (jBody.next !== null) {
-      fetchPeople(++page);
-    }
   });
-}
-
-fetchPeople(1);
+});
